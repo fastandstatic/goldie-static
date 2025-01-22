@@ -59,11 +59,3 @@
     background: #9F826D;
     opacity: 1;
 }/* End custom CSS */
-/* Start Custom Fonts CSS */@font-face {
-	font-family: 'Against';
-	font-style: normal;
-	font-weight: normal;
-	font-display: auto;
-	src: url('/wp-content/uploads/2024/11/against-regular.ttf') format('truetype');
-}
-/* End Custom Fonts CSS */

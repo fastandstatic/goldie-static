@@ -6,10 +6,17 @@ if (document.readyState !== 'loading') {
 
 function smoothScrollReady() {
 	if (typeof Lenis != "undefined") {
-		const lenis = new Lenis({
-			smoothWheel: miga_smooth_scrolling_params.miga_smooth_scrolling_smoothWheel
-		});
+		let lenisSettings = {
+			smoothWheel: parseInt(miga_smooth_scrolling_params.miga_smooth_scrolling_smoothWheel)
+		};
 
+		if (miga_smooth_scrolling_params.miga_smooth_scrolling_lerp > 0) {
+			lenisSettings.lerp = parseFloat(miga_smooth_scrolling_params.miga_smooth_scrolling_lerp);
+		} else if (miga_smooth_scrolling_params.miga_smooth_scrolling_duration > 0) {
+			lenisSettings.duration = parseFloat(miga_smooth_scrolling_params.miga_smooth_scrolling_duration);
+		}
+
+		const lenis = new Lenis(lenisSettings);
 		lenis.on('scroll', (e) => {
 			if (typeof smoothScrollLenisCallback != "undefined") {
 				smoothScrollLenisCallback(e);
